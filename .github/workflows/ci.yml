@@ -24,7 +24,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Запуск тестів (pytest)
+            - name: Запуск тестів (pytest)
         run: |
           pip install pytest
-          pytest
+          PYTHONPATH=. pytest
