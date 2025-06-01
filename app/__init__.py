@@ -1,10 +1,11 @@
 from flask import Flask
-from app.models.book import db
+from app.extensions import db
 from app.routes.book_routes import book_bp
+
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_pyfile('../config.py')
+    app.config.from_pyfile('/absolute/path/to/config.py')
 
     db.init_app(app)
 
@@ -12,4 +13,5 @@ def create_app():
         db.create_all()
 
     app.register_blueprint(book_bp)
+
     return app
